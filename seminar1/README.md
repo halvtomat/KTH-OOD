@@ -14,53 +14,89 @@ danielg8@kth.se
 ## Result
 
 ### Domain Model
+I begun by identifying all key nouns from the Requirements Specification.
+
 **Key Nouns**:
 - POS
-- Retail Store
+- RetailStore
 - Customer
 - Goods
+- Item
 - Cashier
 - Sale
-- Item Id
-- Program (Register System)
-- Item Price
-- Item VAT Rate
-- Item Description
-- External Inventory System
-- Total Price
+- ItemIdentifier
+- Program
+- Price
+- VATRate
+- ItemDescription
+- ExternalInventorySystem (EIS)
+- TotalPrice
 - Payment
-- Amount Paid
-- External Accounting System
-- Register Amount
+- AmountPaid
+- ExternalAccountingSystem (EAS)
+- RegisterAmount
 - Receipt
 - Change
 - Discount
-- Customer Id
-- Time Of Sale
-- Store Name
-- Store Address
+- CustomerIdentifier
+- DateOfSale
+- TimeOfSale
+- StoreName
+- StoreAddress
+- SaleLog
 
 **Categories**:
 
 | Category     | Items           |
 |--------------|-----------------|
-| Numbers      | Item Id, Item Price, Item VAT Rate, Total Price, Amount Paid, Register Amount, Change, Discount, Customer Id, Time Of Sale|
-| Descriptions | Item Description, Receipt |
-| Actors       | Customer, Cashier |
-| Systems      | Register System, External Inventory System, External Accounting System |
-| Locations    | POS, Retail Store |
-| Events       | Sale, Payment   |
-| Goods        | Goods |
+| Transactions | Payment, Sale |
+| Products, Services | Goods |
+| Roles, People, Organizations| Customer, Cashier, Store |
+| Places | Store, POS |
+| Records | Receipt, EIS, EAS, RegisterLog |
+| Events | Sale, DiscountRequest |
+| Physical Objects | Goods, Receipt, Cash, Register, Store, Cart |
+| Devices | Register |
+| Descriptions | PriceTag, ItemDescription, CustomerIdentifier, ItemIdentifier |
+| Catalogs | - |
+| Systems | EIS, EAS, RegisterSystem |
+| Quantities, Units | ItemQuantity, ItemPrice, TotalPrice, VATRate, Discount, Change, Currency, RegisterAmount, AmountPaid |
+| Resources | - |
+
+**Removing irrelevant classes**:
+- Cart, never mentioned in the specification and seems irrelevant.
+- PriceTag, same as ItemPrice.
+- Program, same as RegisterSystem.
+- SaleLog, same as RegisterLog.
+- Price, same as ItemPrice.
+- RetailStore, same as Store.
+- Goods, same as Item.
+- DateOfSale, exists within TimeOfSale.
+
+**Changing classes to attributes**:
+- ItemIdentifier, -> item attribute.
+- ItemPrice, -> item attribute.
+- VATRate, -> item attribute.
+- ItemDescription, -> item attribute.
+- CustomerIdentifier, -> customer attribute.
+- RegisterAmount, -> register attribute.
+- RegisterLog, -> register attribute.
+- StoreName, -> store attribute.
+- StoreAddress, -> store attribute.
+- TimeOfSale, -> receipt attribute.
+- AmountPaid, -> payment attribute.
+- ItemQuantity, -> sale attribute.
+- TotalPrice, -> receipt & sale attribute.
 
 **Classes**:
 
 | Name | Attribute |
-|------|----------|
-| Item | Id, Description, Price, VAT Rate |
-| Sale | Total Price, Discount |
+|------|-----------|
+| Item | Id, Description, Price, VATRate |
+| Sale | TotalPrice, Discount |
 | Customer | Id, Goods |
-| Register | System, Amount | 
-| Receipt | Total Price, Discount, Time Of Sale, Store Name |
+| Register | Amount, Log | 
+| Receipt | TotalPrice, Discount, DateOfSale, TimeOfSale, StoreName |
 | Store | Name, Address |
 | Cashier | - | 
 | Payment | Amount |
