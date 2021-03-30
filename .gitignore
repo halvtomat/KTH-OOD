@@ -14,7 +14,6 @@
 *.aux
 *.pdf
 *.data
-*.png
 *.swp
 .vscode/
 *.pyc
