@@ -11,9 +11,7 @@ danielg8@kth.se
 
 ## Method
 
-## Result
-
-### Domain Model
+### Domain Model (Task 1)
 I begun by identifying all key nouns from the Requirements Specification.
 
 **Key Nouns**:
@@ -45,6 +43,8 @@ I begun by identifying all key nouns from the Requirements Specification.
 - StoreAddress
 - SaleLog
 
+Following that I used a category list to try and find some other useful classes.
+
 **Categories**:
 
 | Category     | Items           |
@@ -63,6 +63,8 @@ I begun by identifying all key nouns from the Requirements Specification.
 | Quantities, Units | ItemQuantity, ItemPrice, TotalPrice, VATRate, Discount, Change, Currency, RegisterAmount, AmountPaid |
 | Resources | - |
 
+When all classes where found I removed classes which didn't fit into the model.
+
 **Removing irrelevant classes**:
 - Cart, never mentioned in the specification and seems irrelevant.
 - PriceTag, same as ItemPrice.
@@ -72,6 +74,8 @@ I begun by identifying all key nouns from the Requirements Specification.
 - RetailStore, same as Store.
 - Goods, same as Item.
 - DateOfSale, exists within TimeOfSale.
+
+Now I changed some classes to be attributes of other classes instead, further removing uneccesary classes.
 
 **Changing classes to attributes**:
 - ItemIdentifier, -> item attribute.
@@ -88,22 +92,13 @@ I begun by identifying all key nouns from the Requirements Specification.
 - ItemQuantity, -> sale attribute.
 - TotalPrice, -> receipt & sale attribute.
 
+### System Sequence Diagram (Task 2)
+## Result
+
+### Domain Model
+
+
 **Classes**:
-
-| Name | Attribute |
-|------|-----------|
-| Item | Id, Description, Price, VATRate |
-| Sale | TotalPrice, Discount |
-| Customer | Id, Goods |
-| Register | Amount, Log | 
-| Receipt | TotalPrice, Discount, DateOfSale, TimeOfSale, StoreName |
-| Store | Name, Address |
-| Cashier | - | 
-| Payment | Amount |
-| EIS | - |
-| EAS | - |
-| Change | - |
-
 
 ## Discussion
 
