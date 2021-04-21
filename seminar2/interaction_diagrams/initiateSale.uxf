@@ -1,0 +1,17 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>310</y><w>60</w><h>30</h></coordinates><panel_attributes>:View
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>410</x><y>310</y><w>80</w><h>30</h></coordinates><panel_attributes>:Controller
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>50</x><y>320</y><w>380</w><h>30</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;360;10</additional_attributes></element><element><id>Relation</id><coordinates><x>160</x><y>290</y><w>170</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+1: initiateSale() : void</panel_attributes><additional_attributes>150;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>860</x><y>310</y><w>80</w><h>30</h></coordinates><panel_attributes>sale :Sale
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>320</y><w>400</w><h>30</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;380;10</additional_attributes></element><element><id>Relation</id><coordinates><x>600</x><y>290</y><w>190</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+1.1 : sale = &lt;&lt;create&gt;&gt; Sale() : Sale</panel_attributes><additional_attributes>170;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>410</x><y>500</y><w>80</w><h>30</h></coordinates><panel_attributes>item :Item
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>440</x><y>330</y><w>30</w><h>190</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;10;170</additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>360</y><w>270</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+2.1 :  item = &lt;&lt;create&gt;&gt;Item(itemIdentifier) : Item</panel_attributes><additional_attributes>10;110;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>160</x><y>230</y><w>170</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+3: totalPrice = endSale() : int</panel_attributes><additional_attributes>150;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>600</x><y>230</y><w>190</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+3.1 : totalPrice = endSale() : int</panel_attributes><additional_attributes>170;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>850</x><y>500</y><w>100</w><h>30</h></coordinates><panel_attributes>:Receipt
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>890</x><y>330</y><w>30</w><h>190</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;10;170</additional_attributes></element><element><id>Relation</id><coordinates><x>910</x><y>360</y><w>170</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+X : printReceipt(sale) : void</panel_attributes><additional_attributes>10;110;10;10</additional_attributes></element></diagram>
