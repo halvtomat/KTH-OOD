@@ -4,6 +4,10 @@ import view.View;
 import integration.*;
 
 public class Main {
+
+    /**
+     * Runs an instance of the program.
+     */
     public static void main(String[] args) {
         Printer printer = new Printer();
         EAS eas = new EAS();

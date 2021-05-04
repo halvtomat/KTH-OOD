@@ -34,7 +34,7 @@ public class ControllerTest {
 
         controller.initiateSale();
         controller.addItem(1);
-        assert(controller.endSale() == 1);
+        assert(controller.endSale() == 2);
 
         controller.initiateSale();
         controller.addItem(99); //Shouldn't exist
@@ -43,12 +43,12 @@ public class ControllerTest {
         controller.initiateSale();
         controller.addItem(1);
         controller.addItem(3, 5);
-        assert(controller.endSale() == 26);
+        assert(controller.endSale() == 27);
 
         controller.initiateSale();
         controller.addItem(1);
         controller.addItem(99, 2); //Shouldn't exist
-        assert(controller.endSale() == 1);
+        assert(controller.endSale() == 2);
     }
 
     public static void endSaleTest(Printer printer, EAS eas, EIS eis, CustomerDB customerDB) {
@@ -58,7 +58,7 @@ public class ControllerTest {
         assert(controller.endSale() == 0);
 
         controller.addItem(1,5);
-        assert(controller.endSale() == 5);
+        assert(controller.endSale() == 10);
     }
     
     public static void discountRequestTest(Printer printer, EAS eas, EIS eis, CustomerDB customerDB) {
