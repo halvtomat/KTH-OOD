@@ -12,10 +12,12 @@ public class Main {
         Controller controller = new Controller(printer, eas, eis, customerDB);
         View view = new View(controller);
 
-        while(true){
+        boolean running = true;
+
+        while(running){
             view.printMenu();
             int input = view.nextInt();
-            int id, quantity;
+            int id, quantity, totalPrice, change;
 
             switch(input) {
                 case 1:
@@ -33,16 +35,21 @@ public class Main {
                     view.printSale();
                     break;
                 case 4:
-                    controller.endSale();
-                    view.printSale();
+                    totalPrice = controller.endSale();
+                    view.printTotalPrice(totalPrice);
                     break;
                 case 5:
                     id = view.nextInt();
-                    controller.discountRequest(id);
+                    totalPrice = controller.discountRequest(id);
+                    view.printTotalPrice(totalPrice);
                     break;
                 case 6: 
                     quantity = view.nextInt();
-                    controller.payment(quantity);
+                    change = controller.payment(quantity);
+                    view.printChange(change);
+                    break;
+                case 7:
+                    running = false;
                     break;
             }
         }

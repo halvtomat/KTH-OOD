@@ -5,7 +5,6 @@ import integration.Printer;
 import java.util.List;
 import java.util.ArrayList;
 
-
 public class Sale {
 
     private class ItemQuantity{
@@ -29,14 +28,13 @@ public class Sale {
     }
 
     public void update(Item item, int quantity){
-        if(searchItem(item) > -1){
+        if(searchItem(item) > -1)
             itemList.get(searchItem(item)).quantity += quantity;
-        }
-        else {
+        else 
             itemList.add(new ItemQuantity(item, quantity));
-        }
-        
+        totalPrice += item.getPrice() * quantity;
     }
+
     public int searchItem(Item item){
         for(int i = 0; i < itemList.size(); i++){
             if(itemList.get(i).item.getIdentifier() == item.getIdentifier()){
@@ -45,16 +43,13 @@ public class Sale {
         }
         return -1;
     }
+
     public int endSale(){
-        for(int i = 0; i<itemList.size(); i++){
-            totalPrice += itemList.get(i).item.getPrice()*itemList.get(i).quantity;
-        }
         return totalPrice;
     }
 
     public int payment(int amount){
-        Receipt receipt = new Receipt(this, printer);
-        receipt.print();
+        printer.print(this);
         return amount-totalPrice;
     }
 
@@ -66,15 +61,19 @@ public class Sale {
             return totalPrice;
         }
     }
+
+    public int getTotalPrice(){
+        return totalPrice;
+    }
+
     @Override
     public String toString() {
-        String s = "";
-        for(int i = 0; i<itemList.size(); i++){
-            s += itemList.get(i).item.getDescription() + ": " + itemList.get(i).quantity + "x \n";
+        String printOut = "\n----- SALE INFO -----\n";
+        for(int i = 0; i < itemList.size(); i++){
+            printOut += itemList.get(i).item.getDescription() + ": " + itemList.get(i).quantity + "x \n";
         }
 
-        s += totalPrice + " \n";
-        return s;
-    
+        printOut += "Total Price: " + totalPrice + "\n" + "----- SALE INFO -----\n\n";
+        return printOut;
     }
 }

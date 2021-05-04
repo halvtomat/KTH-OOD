@@ -21,26 +21,17 @@ public class Controller {
         this.sale = new Sale(customerDB, printer); 
     }
 
-    public Sale addItem(int itemIdentifier, int quantity) {
+    public void addItem(int itemIdentifier, int quantity) {
         boolean isValid = eis.checkValid(itemIdentifier);
         
         if(isValid) {
             Item item = eis.getItem(itemIdentifier);
             sale.update(item, quantity);
         }
-
-        return sale;
     }
 
-    public Sale addItem(int itemIdentifier) {
-        boolean isValid = eis.checkValid(itemIdentifier);
-        
-        if(isValid) {
-            Item item = eis.getItem(itemIdentifier);
-            sale.update(item, 1);
-        }
-
-        return sale;
+    public void addItem(int itemIdentifier) {
+        addItem(itemIdentifier, 1);
     }
 
     public int endSale() {
@@ -55,6 +46,7 @@ public class Controller {
         int changeAmount = sale.payment(amount);
         eis.completedSale(sale);
         eas.completedSale(sale);
+        this.sale = null;
         return changeAmount;
     }
 

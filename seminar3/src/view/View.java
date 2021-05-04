@@ -12,7 +12,7 @@ public class View {
 
     public void printMenu() {
         System.out.print(
-            "1. Initiate Sale\n" +
+            "\n1. Initiate Sale\n" +
             "2. Add item\n" +
             "3. Add item with quantity\n" +
             "4. End Sale\n" +
@@ -28,5 +28,13 @@ public class View {
 
     public void printSale() {
         System.out.print(controller.saleToString());
+    }
+
+    public void printTotalPrice(int totalPrice) {
+        System.out.print("\n----------\nTOTAL PRICE: " + totalPrice + "\n----------\n");
+    }
+
+    public void printChange(int change) {
+        System.out.print("\n----------\nCHANGE: " + change + "\n----------\n");
     }
 }
