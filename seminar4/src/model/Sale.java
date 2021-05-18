@@ -68,7 +68,7 @@ public class Sale {
     }
 
     /**
-     * Prints the receit and completes sale
+     * Prints the receit, completes sale and notifies observers.
      * @param amount - amount received from customer
      * @return - amount of change to return to customer
      */
@@ -117,6 +117,10 @@ public class Sale {
         }
     }
 
+    /**
+     * Adds a list of observers to the revenueObserves list.
+     * @param observers - the list of observers to add.
+     */
     public void addRevenueObservers(List<RevenueObserver> observers) {
         revenueObservers.addAll(observers);
     }

@@ -9,7 +9,7 @@
 --
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>780</x><y>480</y><w>320</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
 1.1.1: isEligable = checkDiscount(customerId) : boolean</panel_attributes><additional_attributes>10;110;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>510</x><y>410</y><w>310</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-1.2: priceAfterDiscount = applyDiscount(customerId) : int</panel_attributes><additional_attributes>260;20;40;20</additional_attributes></element><element><id>Relation</id><coordinates><x>760</x><y>460</y><w>30</w><h>160</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;140;10;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>830</x><y>330</y><w>120</w><h>50</h></coordinates><panel_attributes>If isEligable = false
+1.1: priceAfterDiscount = applyDiscount(customerId) : int</panel_attributes><additional_attributes>260;20;40;20</additional_attributes></element><element><id>Relation</id><coordinates><x>760</x><y>460</y><w>30</w><h>160</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;140;10;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>830</x><y>330</y><w>120</w><h>50</h></coordinates><panel_attributes>If isEligable = false
 priceAfterDiscount 
 is unaffected
 bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>370</y><w>110</w><h>90</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;70;90;10</additional_attributes></element></diagram>

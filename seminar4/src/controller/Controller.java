@@ -110,6 +110,10 @@ public class Controller {
         return sale.toString();
     }
 
+    /**
+     * Adds observers to a list.
+     * @param RevenueObserver - a total revenue observer.
+     */
     public void addRevenueObserver(RevenueObserver obs) {
         revenueObservers.add(obs);
     }

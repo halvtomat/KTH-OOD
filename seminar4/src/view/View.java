@@ -7,14 +7,14 @@ import util.TotalRevenueFileOutput;
 import java.util.Scanner;
 
 /**
- * Represents the view of the program
+ * Represents the view of the program.
  */
 public class View {
     Controller controller;
     Scanner scanner;
 
     /**
-     * Constructs a View object
+     * Constructs a View object.
      * @param controller
      */
     public View(Controller controller) {
@@ -25,7 +25,7 @@ public class View {
     }
 
     /**
-     * Prints a multiple choice menu representing the options in the program
+     * Prints a multiple choice menu representing the options in the program.
      */
     public void printMenu() {
         System.out.print(
@@ -40,15 +40,15 @@ public class View {
     }
 
     /**
-     * Reads an int from the standard input channel
-     * @return The inputed int
+     * Reads an int from the standard input channel.
+     * @return The inputed int.
      */
     public int nextInt() {
         return scanner.nextInt();
     }
 
     /**
-     * Prints a sale instance
+     * Prints a sale instance.
      */
     public void printSale() {
         System.out.print(controller.saleToString());

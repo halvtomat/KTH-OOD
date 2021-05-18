@@ -9,7 +9,7 @@ danielg8@kth.se
 
 ## Introduction
 The task is to implement the program designed in earlier assignments.
-The program should cover the basic flow, alternative flows and startup specified in seminar one.
+The program should cover the basic flow, alternative flows and startup specified in seminar one. Collaborated with Valerio Akman.
 
 ## Method
 The implementation was done by looking at the class diagram from seminar two,
