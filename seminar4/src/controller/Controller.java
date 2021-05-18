@@ -1,7 +1,10 @@
 package controller;
 import integration.*;
 import model.Sale;
+import model.RevenueObserver;
 import util.LogWriter;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Represents the controller of the program
@@ -13,6 +16,7 @@ public class Controller {
     private EIS eis;
     private CustomerDB customerDB;
     private Sale sale;
+    private List<RevenueObserver> revenueObservers;
 
     /**
      * Creates a new instance of the Controller class
@@ -26,13 +30,15 @@ public class Controller {
         this.eas = eas;
         this.eis = eis;
         this.customerDB = customerDB;
+        revenueObservers = new ArrayList<RevenueObserver>();
     }
 
     /**
      * Initiates a new sale.
      */
     public void initiateSale() {
-        this.sale = new Sale(customerDB, printer); 
+        sale = new Sale(customerDB, printer);
+        sale.addRevenueObservers(revenueObservers);
     }
 
     /**
@@ -102,5 +108,9 @@ public class Controller {
      */
     public String saleToString() {
         return sale.toString();
+    }
+
+    public void addRevenueObserver(RevenueObserver obs) {
+        revenueObservers.add(obs);
     }
 }

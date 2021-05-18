@@ -2,6 +2,7 @@ package view;
 import controller.Controller;
 import integration.DatabaseNotRespondingException;
 import integration.ItemNotFoundException;
+import util.TotalRevenueFileOutput;
 
 import java.util.Scanner;
 
@@ -19,6 +20,8 @@ public class View {
     public View(Controller controller) {
         this.controller = controller;
         this.scanner = new Scanner(System.in);
+        controller.addRevenueObserver(new TotalRevenueView());
+        controller.addRevenueObserver(new TotalRevenueFileOutput());
     }
 
     /**

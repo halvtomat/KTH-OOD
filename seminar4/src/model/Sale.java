@@ -1,4 +1,3 @@
-
 package model;
 import integration.CustomerDB;
 import integration.Item;
@@ -21,8 +20,9 @@ public class Sale {
     
     private int totalPrice = 0;
     private List<ItemQuantity> itemList;
-    CustomerDB customerDB;
-    Printer printer;
+    private CustomerDB customerDB;
+    private Printer printer;
+    private List<RevenueObserver> revenueObservers;
 
     /**
      * Creates a new instance of the Sale class
@@ -33,6 +33,7 @@ public class Sale {
         this.customerDB = customerDB;
         this.printer = printer;
         itemList = new ArrayList<ItemQuantity>();
+        revenueObservers = new ArrayList<RevenueObserver>();
     }
 
     /**
@@ -74,6 +75,7 @@ public class Sale {
     public int payment(int amount){
         Receipt receipt = new Receipt(this, printer);
         receipt.print();
+        notifyObservers();
         return amount-totalPrice;
     }
 
@@ -107,5 +109,15 @@ public class Sale {
 
         printOut += "Total Price: " + totalPrice + "\n" + "----- SALE INFO -----\n\n";
         return printOut;
+    }
+
+    private void notifyObservers() {
+        for(RevenueObserver obs: revenueObservers) {
+            obs.completedSale(totalPrice);
+        }
+    }
+
+    public void addRevenueObservers(List<RevenueObserver> observers) {
+        revenueObservers.addAll(observers);
     }
 }
